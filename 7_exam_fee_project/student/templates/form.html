@@ -1,0 +1,16 @@
+<h2>Student Exam Fee Form</h2>
+<form method="post">
+{% csrf_token %}
+Name: <input type="text" name="name"><br>
+USN: <input type="text" name="usn"><br>
+Semester: <input type="number" name="semester"><br>
+Fee Paid: <input type="checkbox" name="fee"><br>
+<button type="submit">Submit</button>
+</form>
+<h3>Student List</h3>
+{% for s in data %}
+<p>{{s.name}} - {{s.usn}} - Sem {{s.semester}} - 
+{% if s.fee_paid %}Paid{% else %}Not Paid{% endif %}
+</p>
+{% endfor %}
+<a href="/delete/">Delete Unpaid Students</a>

@@ -1,0 +1,9 @@
+<h2>Student Form</h2>
+<form method="post">
+{% csrf_token %}
+Name: <input name="name"><br>
+USN: <input name="usn"><br>
+Grade: <input name="grade"><br>
+<button>Submit</button>
+</form>
+<a href="/ograde/">View O Grade Students</a>

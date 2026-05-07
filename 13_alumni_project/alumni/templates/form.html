@@ -1,0 +1,15 @@
+<h2>Alumni Form</h2>
+<form method="post">
+{% csrf_token %}
+Name: <input name="name"><br>
+USN: <input name="usn"><br>
+Year: <input type="number" name="year"><br>
+Company: <input name="company"><br>
+<button>Submit</button>
+</form>
+<h3>Search by Passing Year</h3>
+<form method="post" action="/filter/">
+{% csrf_token %}
+Year: <input type="number" name="year"><br>
+<button>Search</button>
+</form>

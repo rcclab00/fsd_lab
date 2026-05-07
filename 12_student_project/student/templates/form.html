@@ -1,0 +1,16 @@
+<h2>Student Form</h2>
+<form method="post">
+{% csrf_token %}
+Name: <input name="name"><br>
+USN: <input name="usn"><br>
+Dept: <input name="dept"><br>
+Grade: <input name="grade"><br>
+<button>Submit</button>
+</form>
+<h3>Update Grade</h3>
+<form method="post" action="/update/">
+{% csrf_token %}
+Name: <input name="name"><br>
+New Grade: <input name="grade"><br>
+<button>Update</button>
+</form>

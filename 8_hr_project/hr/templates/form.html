@@ -1,0 +1,12 @@
+<h2>Employee Form</h2>
+<form method="post">
+{% csrf_token %}
+Name: <input name="name"><br>
+Email: <input name="email"><br>
+Phone: <input name="phone"><br>
+Date: <input type="date" name="date"><br>
+Job: <input name="job"><br>
+Salary: <input type="number" name="salary"><br>
+<button>Submit</button>
+</form>
+<a href="/high/">View Salary > 50000</a>
