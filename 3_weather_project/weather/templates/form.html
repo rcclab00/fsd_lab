@@ -1,0 +1,14 @@
+<h2>weather app</h2>
+<form method="POST">
+{% csrf_token %}
+City: <input name="city">
+<button>Get Weather</button>
+</form>
+
+{% if data.error %}
+<p style="color:red;">{{ data.error }}</p>
+{% elif data.city %}
+<h3>Weather in {{ data.city }}</h3>
+<p>Temperature: {{ data.temp }} C</p>
+<p>Description: {{ data.desc }}</p>
+{% endif %}

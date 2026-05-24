@@ -1,0 +1,14 @@
+<h2>CIE Marks Entry</h2>
+<form method="post">
+{% csrf_token %}
+USN: <input name="usn"><br>
+Name: <input name="name"><br>
+Subject Code: <input name="subject"><br>
+CIE Marks: <input type="number" name="marks"><br>
+<button>Submit</button>
+</form>
+
+<h3>Students with CIE Marks < 20</h3>
+{% for s in data %}
+<p>{{ s.usn }} - {{ s.name }} - {{ s.subject_code }} - {{ s.cie_marks }}</p>
+{% endfor %}

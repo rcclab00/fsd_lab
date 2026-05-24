@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+  input:focus, textarea:focus { border: 2px solid blue; }
+  .entry:nth-child(even) { background: #f0f0f0; }
+  .entry:nth-child(odd)  { background: #ffffff; }
+</style>
+</head>
+<body>
+<h2>Student Feedback</h2>
+<form id="fbForm">
+  {% csrf_token %}
+  Name: <input id="name" name="name"><br>
+  Feedback: <textarea id="fb" name="feedback"></textarea><br>
+  <button type="submit">Submit</button>
+</form>
+
+<h3>Feedbacks:</h3>
+<div id="list"></div>
+
+<script>
+$('#fbForm').on('submit', function(e) {
+  e.preventDefault();
+  $.post('/submit/', $(this).serialize(), function(res) {
+    $('#list').append('<div class="entry"><b>' + res.name + ':</b> ' + res.feedback + '</div>');
+    $('#name').val('');
+    $('#fb').val('');
+  });
+});
+</script>
+</body>
+</html>

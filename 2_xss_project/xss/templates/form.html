@@ -1,0 +1,13 @@
+<h2>XSS Demo</h2>
+<form method="post">
+{% csrf_token %}
+Enter Name: <input name="name"><br>
+<button>Submit</button>
+</form>
+
+{% if raw %}
+<h3>Unsafe Output (XSS possible):</h3>
+<p>{{raw|safe}}</p>
+<h3>Safe Output (Sanitized):</h3>
+<p>{{ safe }}</p>
+{% endif %}
